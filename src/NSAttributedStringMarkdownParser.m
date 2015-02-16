@@ -161,10 +161,10 @@ int markdownConsume(char* text, int token, yyscan_t scanner);
 - (NSDictionary *)paragraphStyle {
   CGFloat paragraphSpacing = 0.0;
   CGFloat paragraphSpacingBefore = 0.0;
-  CGFloat firstLineHeadIndent = 15.0;
-  CGFloat headIndent = 30.0;
+  CGFloat firstLineHeadIndent = 10.0;
+  CGFloat headIndent = 20.0;
 
-  CGFloat firstTabStop = 35.0; // width of your indent
+  CGFloat firstTabStop = 20.0; // width of your indent
   CGFloat lineSpacing = 0.45;
 
 #ifdef TARGET_OS_IPHONE
