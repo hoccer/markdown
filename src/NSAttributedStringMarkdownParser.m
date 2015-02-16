@@ -67,6 +67,8 @@ int markdownConsume(char* text, int token, yyscan_t scanner);
     self.boldItalicFontName = @"Helvetica-BoldOblique";
     self.codeFontName = @"Courier";
 
+    self.textColor = [UIColor blackColor];
+
     NSAttributedStringMarkdownParserHeader header = NSAttributedStringMarkdownParserHeader1;
     for (CGFloat headerFontSize = 24; headerFontSize >= 14; headerFontSize -= 2, header++) {
       [self setFont:[UINSFont systemFontOfSize:headerFontSize] forHeader:header];
@@ -234,11 +236,13 @@ int markdownConsume(char* text, int token, yyscan_t scanner);
 }
 
 - (NSDictionary *)attributesForFontWithName:(NSString *)fontName {
-    return @{NSFontAttributeName: [UINSFont fontWithName:fontName size:self.topFont.pointSize]};
+    return @{NSFontAttributeName: [UINSFont fontWithName:fontName size:self.topFont.pointSize],
+             NSForegroundColorAttributeName: self.textColor};
 }
 
 - (NSDictionary *)attributesForFont:(UINSFont *)font {
-    return @{NSFontAttributeName: font};
+    return @{NSFontAttributeName: font,
+             NSForegroundColorAttributeName: self.textColor};
 }
 
 - (void)recurseOnString:(NSString *)string withFont:(UINSFont *)font {
